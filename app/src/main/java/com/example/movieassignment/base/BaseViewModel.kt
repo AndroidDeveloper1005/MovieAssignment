@@ -37,7 +37,6 @@ abstract class BaseViewModel(application: Application) : AndroidViewModel(applic
             showFailureScreen.set(true)
             return
         }
-
     }
 
     fun resetView(){

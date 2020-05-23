@@ -10,11 +10,11 @@ import com.google.gson.annotations.SerializedName
 class Genre() : Parcelable {
     @SerializedName("id")
     @Expose
-    var id: Int? = null
+    var id: Int? = -1
 
     @SerializedName("name")
     @Expose
-    var name: String? = null
+    var name: String? = ""
 
     constructor(parcel: Parcel) : this() {
         id = parcel.readValue(Int::class.java.classLoader) as? Int

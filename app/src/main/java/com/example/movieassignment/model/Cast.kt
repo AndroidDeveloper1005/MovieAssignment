@@ -27,18 +27,10 @@ class Cast() : MovieDetailBaseModel(), Parcelable {
     @SerializedName("id")
     @Expose
     var id: Int? = null
-//
-//    @SerializedName("name")
-//    @Expose
-//    var name: String? = null
 
     @SerializedName("order")
     @Expose
     var order: Int? = null
-
-//    @SerializedName("profile_path")
-//    @Expose
-//    var profilePath: String? = null
 
     constructor(parcel: Parcel) : this() {
         castId = parcel.readValue(Int::class.java.classLoader) as? Int

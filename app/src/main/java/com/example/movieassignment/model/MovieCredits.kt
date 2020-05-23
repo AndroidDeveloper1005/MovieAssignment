@@ -10,7 +10,7 @@ import com.google.gson.annotations.SerializedName
 class MovieCredits() : Parcelable {
     @SerializedName("id")
     @Expose
-    var id: Int? = null
+    var id: Int? = -1
 
     @SerializedName("cast")
     @Expose

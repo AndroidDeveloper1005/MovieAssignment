@@ -17,11 +17,7 @@ import kotlinx.coroutines.launch
 
 class HomeViewModel(application: Application) : BaseViewModel(application){
 
-    val appOpened = ObservableBoolean(true)
-
     val toolbarTitle = ObservableField("MoviePlex")
-
-    val showSearch = ObservableBoolean(true)
 
     var selectedMovieId : Long = -1
 
@@ -33,7 +29,7 @@ class HomeViewModel(application: Application) : BaseViewModel(application){
 
         if (!NetworkDetector.isInternetAvailable(getApplication())){
             showLoading.set(false)
-            showFailureScreen.set(true)
+//            showFailureScreen.set(true)
             return
         }
 
@@ -50,10 +46,12 @@ class HomeViewModel(application: Application) : BaseViewModel(application){
                         "success: "+response.value.results?.size,
                         Toast.LENGTH_LONG).show()
             }
-            if (response is Response.Error){
-                showFailureScreen.set(true)
-            }
+
+//            if (response is Response.Error){
+//                showFailureScreen.set(true)
+//            }
         }
     }
+
 
 }

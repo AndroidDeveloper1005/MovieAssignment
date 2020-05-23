@@ -19,42 +19,42 @@
         android:layout_height="wrap_content"
         android:background="@android:color/white"
         app:cardBackgroundColor="@android:color/white"
-        app:cardElevation="8dp"
+        app:cardElevation="@dimen/dp_8"
         android:onClick="@{() -> viewModel.onItemClicked(movieData)}"
         app:layout_constraintTop_toTopOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingTop="5dp"
-            android:paddingBottom="5dp">
+            android:paddingTop="@dimen/dp_5"
+            android:paddingBottom="@dimen/dp_5">
 
             <androidx.constraintlayout.widget.Guideline
                 android:id="@+id/startGuideline"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                app:layout_constraintGuide_begin="15dp" />
+                app:layout_constraintGuide_begin="@dimen/dp_15" />
 
             <androidx.constraintlayout.widget.Guideline
                 android:id="@+id/stopGuideline"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                app:layout_constraintGuide_end="15dp" />
+                app:layout_constraintGuide_end="@dimen/dp_15" />
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/cvThumbnail"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:cardCornerRadius="6dp"
+                app:cardCornerRadius="@dimen/dp_6"
                 app:layout_constraintStart_toEndOf="@+id/startGuideline"
                 app:layout_constraintTop_toTopOf="parent">
 
                 <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/ivMovieThumbnail"
-                    android:layout_width="90dp"
-                    android:layout_height="120dp"
+                    android:layout_width="@dimen/dp_90"
+                    android:layout_height="@dimen/dp_120"
                     android:scaleType="fitXY"
                     app:image="@{movieData.posterPath}"
                     app:layout_constraintDimensionRatio="@string/ar_4x3"
@@ -69,48 +69,48 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                app:layout_constraintGuide_begin="120dp" />
+                app:layout_constraintGuide_begin="@dimen/dp_120" />
 
             <TextView
                 android:id="@+id/tvMovieTitle"
                 android:layout_width="0dp"
-                android:layout_height="30dp"
+                android:layout_height="@dimen/dp_30"
                 android:ellipsize="end"
                 android:maxLines="1"
-                android:textSize="16sp"
+                android:textSize="@dimen/sp_16"
                 android:textColor="@android:color/black"
                 android:fontFamily="sans-serif-black"
                 android:text="@{movieData.title}"
                 app:layout_constraintEnd_toStartOf="@+id/stopGuideline"
                 app:layout_constraintStart_toEndOf="@+id/contentStartGuideline"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:text="Movie Title" />
+                tools:text="@string/movie_title" />
 
             <TextView
                 android:id="@+id/tvReleaseDate"
                 android:layout_width="0dp"
-                android:layout_height="30dp"
-                android:layout_marginTop="5dp"
+                android:layout_height="@dimen/dp_30"
+                android:layout_marginTop="@dimen/dp_5"
                 android:fontFamily="sans-serif-light"
                 android:ellipsize="end"
                 android:maxLines="1"
                 android:text="@{movieData.releaseDate}"
-                android:textSize="16sp"
+                android:textSize="@dimen/sp_16"
                 android:textColor="@android:color/black"
                 app:layout_constraintEnd_toStartOf="@+id/stopGuideline"
                 app:layout_constraintStart_toEndOf="@+id/contentStartGuideline"
                 app:layout_constraintTop_toBottomOf="@+id/tvMovieTitle"
-                tools:text="Movie Release Date" />
+                tools:text="@string/release_date" />
 
             <TextView
                 android:id="@+id/tvOtherDetails"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="@dimen/dp_5"
                 android:ellipsize="end"
                 android:maxLines="3"
                 android:fontFamily="sans-serif-light"
-                android:textSize="14sp"
+                android:textSize="@dimen/sp_14"
                 app:layout_constraintBottom_toBottomOf="@+id/cvThumbnail"
                 app:layout_constraintEnd_toStartOf="@+id/stopGuideline"
                 app:layout_constraintHorizontal_bias="0.0"
@@ -124,20 +124,20 @@
             <Button
                 android:id="@+id/btnPlay"
                 android:layout_width="wrap_content"
-                android:layout_height="30dp"
-                android:layout_marginTop="5dp"
+                android:layout_height="@dimen/dp_30"
+                android:layout_marginTop="@dimen/dp_5"
                 android:background="@color/dominant_color1"
                 android:fontFamily="sans-serif-condensed-medium"
                 android:text="@string/play"
                 android:textColor="@android:color/white"
-                android:textSize="14sp"
+                android:textSize="@dimen/sp_14"
                 android:textStyle="bold"
                 app:layout_constraintStart_toEndOf="@+id/startGuideline"
                 app:layout_constraintTop_toBottomOf="@+id/cvThumbnail" />
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
+                android:layout_height="@dimen/dp_1"
                 android:background="@color/color_divider"
                 app:layout_constraintBottom_toBottomOf="parent"
                 />

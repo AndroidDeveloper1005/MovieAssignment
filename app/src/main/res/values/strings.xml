@@ -5,7 +5,7 @@
     <string name="ar_4x3">4:3</string>
     <string name="search">search</string>
     <string name="search_your_content">Search Your Content</string>
-    <string name="search_hint">Search Your Content Here.......</string>
+    <string name="search_hint">Search Movie By Title......</string>
     <string name="hint_release_date">Release Date</string>
     <string name="hint_language">language</string>
     <string name="hint_genre">Genre</string>
@@ -15,4 +15,6 @@
     <string name="title_similar_movies">Similar Movies</string>
     <string name="title_movie">Movie Title</string>
     <string name="sth_went_wrong">Oops!!!! Something Went Wrong\n Please Try Again</string>
+    <string name="movie_title">Movie Title</string>
+    <string name="release_date">Movie Release Date</string>
 </resources>

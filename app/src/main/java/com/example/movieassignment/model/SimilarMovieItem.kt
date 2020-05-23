@@ -23,10 +23,6 @@ class SimilarMovieItem() : MovieDetailBaseModel(), Parcelable {
     @SerializedName("vote_average")
     @Expose
     var voteAverage: Double? = null
-//
-//    @SerializedName("title")
-//    @Expose
-//    var title: String? = null
 
     @SerializedName("release_date")
     @Expose

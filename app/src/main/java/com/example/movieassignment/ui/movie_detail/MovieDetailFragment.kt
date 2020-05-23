@@ -2,9 +2,7 @@ package com.example.movieassignment.ui.movie_detail
 
 import android.os.Build
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import androidx.annotation.RequiresApi
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
@@ -12,6 +10,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.example.movieassignment.R
 import com.example.movieassignment.databinding.FragmentMovieDetailBinding
+import com.example.movieassignment.model.MovieDetail
 import com.example.movieassignment.ui.adapter.MovieCastAdapter
 import com.example.movieassignment.ui.adapter.MovieCrewAdapter
 import com.example.movieassignment.ui.adapter.SimilarMovieAdapter
@@ -34,6 +33,11 @@ class MovieDetailFragment : Fragment(){
     var similarMoviesAdapter : SimilarMovieAdapter?= null
 
     var genres = ""
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setHasOptionsMenu(false)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -61,6 +65,13 @@ class MovieDetailFragment : Fragment(){
         fetchMovieCredits()
 
         fetchSimilarMovies()
+
+        setHasOptionsMenu(false)
+    }
+
+    override fun onStop() {
+        mViewModel.resetView()
+        super.onStop()
     }
 
     private fun fetchSimilarMovies() {
@@ -100,18 +111,7 @@ class MovieDetailFragment : Fragment(){
         mViewModel.getMovieDetails(mHomeViewModel.selectedMovieId)
         mViewModel.mutableMovieDetails.observe(this, Observer {
             if (it != null){
-                mBinding.apply {
-                    tvMovieTitle.text = it.title
-                    tvReleaseDate.text = "Release Date: " + it.releaseDate
-                    tvLanguage.text = "Language: "+it.originalLanguage
-                    it.genres?.forEach {
-                        genres = it.name?.capitalize().toString() + ", " + genres
-                    }
-
-                    tvGenre.text = "Generes: "+genres.dropLast(2)
-                    tvSynopsysText.text = "Synopsys: "+it.overview
-                }
-                it.posterPath?.let { it1 -> mBinding.ivVideo.loadImage(it1) }
+                updateView(it)
             }
         })
     }
@@ -127,9 +127,18 @@ class MovieDetailFragment : Fragment(){
         mBinding.rvSimilarMovies.adapter = similarMoviesAdapter
     }
 
-    override fun onStop() {
-        mViewModel.resetView()
-        super.onStop()
-    }
+    private fun updateView(it: MovieDetail) {
+        mBinding.apply {
+            tvMovieTitle.text = it.title
+            tvReleaseDate.text = "Release Date: " + it.releaseDate
+            tvLanguage.text = "Language: "+it.originalLanguage
+            it.genres?.forEach {
+                genres = it.name?.capitalize().toString() + ", " + genres
+            }
 
+            tvGenre.text = "Generes: "+genres.dropLast(2)
+            tvSynopsysText.text = "Synopsys: "+it.overview
+        }
+        it.posterPath?.let { it1 -> mBinding.ivVideo.loadImage(it1) }
+    }
 }

@@ -28,14 +28,6 @@ class Crew() : MovieDetailBaseModel(), Parcelable {
     @Expose
     var job: String? = null
 
-//    @SerializedName("name")
-//    @Expose
-//    var name: String? = null
-
-//    @SerializedName("profile_path")
-//    @Expose
-//    var profilePath: Any? = null
-
     constructor(parcel: Parcel) : this() {
         creditId = parcel.readString()
         department = parcel.readString()

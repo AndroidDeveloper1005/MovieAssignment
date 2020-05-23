@@ -15,10 +15,6 @@ class MovieDetail() : Parcelable {
     @Expose
     var backdropPath: String? = null
 
-    @SerializedName("belongs_to_collection")
-    @Expose
-    var belongsToCollection: Any? = null
-
     @SerializedName("budget")
     @Expose
     var budget: Int? = null

@@ -8,19 +8,19 @@ import com.google.gson.annotations.SerializedName
 open class MovieDetailBaseModel() : Parcelable {
     @SerializedName("name")
     @Expose
-    var name: String? = null
+    var name: String? = ""
 
     @SerializedName("profile_path")
     @Expose
-    var profilePath: String? = null
+    var profilePath: String? = ""
 
     @SerializedName("title")
     @Expose
-    var title: String? = null
+    var title: String? = ""
 
     @SerializedName("poster_path")
     @Expose
-    var posterPath: String? = null
+    var posterPath: String? = ""
 
     var isFromSimilarMovies: Boolean = false
 

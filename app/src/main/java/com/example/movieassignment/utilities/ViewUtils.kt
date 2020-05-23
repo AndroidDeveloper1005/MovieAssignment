@@ -23,8 +23,6 @@ fun ImageView.loadImage(url: String) {
 fun setImageToImageView(view: ImageView, path: String?) {
     if (isUrlValid(path)) {
         val imagePath = Constant.IMAGE_BASE_URL + path
-//        Glide.with(view.context).load(imagePath).dontTransform().dontAnimate()
-//            .diskCacheStrategy(DiskCacheStrategy.ALL).into(view)
         Glide.with(view.context).load(imagePath).dontTransform().dontAnimate()
             .diskCacheStrategy(DiskCacheStrategy.ALL).override(60, 100).thumbnail(0.5f)
             .into(view)
@@ -37,15 +35,5 @@ fun setOtherDetails(view: TextView, movie : Movie){
     if (!TextUtils.isEmpty(movie.overview)) {
         val otherDetails = "popularity: " + movie.popularity + "overview: " + movie.overview
         view.setText(otherDetails)
-    }
-}
-
-@BindingAdapter("constraintAspectRatio")
-fun setConstraintAspectRatio(view: View, ratio: String?) {
-    if (view.layoutParams is ConstraintLayout.LayoutParams) {
-        val layoutParams =
-            view.layoutParams as ConstraintLayout.LayoutParams
-        layoutParams.dimensionRatio = ratio
-        view.layoutParams = layoutParams
     }
 }

@@ -24,7 +24,7 @@ class Movie() : Parcelable {
 
     @SerializedName("poster_path")
     @Expose
-    var posterPath: String? = null
+    var posterPath: String? = ""
 
     @SerializedName("id")
     @Expose
@@ -52,7 +52,7 @@ class Movie() : Parcelable {
 
     @SerializedName("title")
     @Expose
-    var title: String? = null
+    var title: String? = ""
 
     @SerializedName("vote_average")
     @Expose
@@ -60,11 +60,11 @@ class Movie() : Parcelable {
 
     @SerializedName("overview")
     @Expose
-    var overview: String? = null
+    var overview: String? = ""
 
     @SerializedName("release_date")
     @Expose
-    var releaseDate: String? = null
+    var releaseDate: String? = ""
 
     constructor(parcel: Parcel) : this() {
         popularity = parcel.readValue(Double::class.java.classLoader) as? Double

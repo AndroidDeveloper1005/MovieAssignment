@@ -37,26 +37,9 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintVertical_bias="0.54"
             android:id="@+id/progress"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
+            android:layout_width="@dimen/dp_60"
+            android:layout_height="@dimen/dp_60"
             android:visibility="@{homeViewModel.showLoading?View.VISIBLE : View.GONE}"
-            />
-
-        <TextView
-            android:id="@+id/tvDataFailure"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:textSize="20sp"
-            android:text="@string/sth_went_wrong"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintVertical_bias="0.54"
-            android:fontFamily="casual"
-            android:textColor="@android:color/black"
-            android:visibility="@{homeViewModel.showFailureScreen ?View.VISIBLE : View.GONE}"
             />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
