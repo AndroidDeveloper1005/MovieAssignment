@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <import type="android.view.View"/>
+        <variable
+            name="movieCredit"
+            type="com.example.movieassignment.model.MovieDetailBaseModel" />
+    </data>
+    <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="wrap_content"
+        android:layout_height="100dp"
+        android:background="@android:color/black"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        app:cardCornerRadius="8dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layoutMovieDetail"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivCast"
+                android:layout_width="90dp"
+                android:layout_height="100dp"
+                android:scaleType="fitXY"
+                app:image="@{movieCredit.fromSimilarMovies ? movieCredit.posterPath : movieCredit.profilePath}"
+                app:layout_constraintDimensionRatio="@string/ar_4x3"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:src="@color/dominant_color1" />
+
+            <TextView
+                android:id="@+id/tvCastName"
+                android:layout_width="90dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:fontFamily="sans-serif"
+                android:maxLines="1"
+                android:text="@{movieCredit.name}"
+                android:paddingBottom="5dp"
+                android:textColor="@android:color/white"
+                android:textSize="16sp"
+                android:visibility="@{movieCredit.fromSimilarMovies?View.GONE : View.VISIBLE}"
+                app:layout_constraintBottom_toBottomOf="@+id/ivCast"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:text="Cast 1" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</layout>

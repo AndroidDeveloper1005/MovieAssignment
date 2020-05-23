@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.movieassignment.base.BaseViewModel" />
+        <variable
+            name="movieData"
+            type="com.example.movieassignment.model.Movie" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvLatestMovie"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        app:cardBackgroundColor="@android:color/white"
+        app:cardElevation="8dp"
+        android:onClick="@{() -> viewModel.onItemClicked(movieData)}"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp">
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/startGuideline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_begin="15dp" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/stopGuideline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_end="15dp" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cvThumbnail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="6dp"
+                app:layout_constraintStart_toEndOf="@+id/startGuideline"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/ivMovieThumbnail"
+                    android:layout_width="90dp"
+                    android:layout_height="120dp"
+                    android:scaleType="fitXY"
+                    app:image="@{movieData.posterPath}"
+                    app:layout_constraintDimensionRatio="@string/ar_4x3"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:src="@color/dominant_color1" />
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/contentStartGuideline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_begin="120dp" />
+
+            <TextView
+                android:id="@+id/tvMovieTitle"
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:textSize="16sp"
+                android:textColor="@android:color/black"
+                android:fontFamily="sans-serif-black"
+                android:text="@{movieData.title}"
+                app:layout_constraintEnd_toStartOf="@+id/stopGuideline"
+                app:layout_constraintStart_toEndOf="@+id/contentStartGuideline"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Movie Title" />
+
+            <TextView
+                android:id="@+id/tvReleaseDate"
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="5dp"
+                android:fontFamily="sans-serif-light"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:text="@{movieData.releaseDate}"
+                android:textSize="16sp"
+                android:textColor="@android:color/black"
+                app:layout_constraintEnd_toStartOf="@+id/stopGuideline"
+                app:layout_constraintStart_toEndOf="@+id/contentStartGuideline"
+                app:layout_constraintTop_toBottomOf="@+id/tvMovieTitle"
+                tools:text="Movie Release Date" />
+
+            <TextView
+                android:id="@+id/tvOtherDetails"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:ellipsize="end"
+                android:maxLines="3"
+                android:fontFamily="sans-serif-light"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="@+id/cvThumbnail"
+                app:layout_constraintEnd_toStartOf="@+id/stopGuideline"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/contentStartGuideline"
+                android:textColor="@android:color/black"
+                app:layout_constraintTop_toBottomOf="@+id/tvReleaseDate"
+                app:layout_constraintVertical_bias="0.0"
+                app:otherDetails="@{movieData}"
+                tools:text="Other Details hdgdgdgdhfhfhfhhfhfhfhfhfhfhdhdhfhfhfhghgjdjdjdjdjjddddddddddddddddddddddddddddddddddddddddhgggggggggggggggggggggggggggggggggggggggggggggggghhhghdhdhfhfhshshshh" />
+
+            <Button
+                android:id="@+id/btnPlay"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_marginTop="5dp"
+                android:background="@color/dominant_color1"
+                android:fontFamily="sans-serif-condensed-medium"
+                android:text="@string/play"
+                android:textColor="@android:color/white"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@+id/startGuideline"
+                app:layout_constraintTop_toBottomOf="@+id/cvThumbnail" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/color_divider"
+                app:layout_constraintBottom_toBottomOf="parent"
+                />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>
+</layout>

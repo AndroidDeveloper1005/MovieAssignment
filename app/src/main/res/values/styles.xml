@@ -8,4 +8,15 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="MoviePlexTheme" parent="Theme.AppCompat.NoActionBar">
+        <item name="android:typeface">monospace</item>
+    </style>
+
+    <style name="AppTheme.Toolbar" parent="Base.ThemeOverlay.AppCompat.Dark.ActionBar">
+        <item name="colorControlActivated">@android:color/white</item>
+        <item name="colorControlNormal">@color/dominant_color1</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
 </resources>

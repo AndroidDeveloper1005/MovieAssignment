@@ -2,5 +2,20 @@
 <resources>
     <color name="colorPrimary">#6200EE</color>
     <color name="colorPrimaryDark">#3700B3</color>
-    <color name="colorAccent">#03DAC5</color>
+    <color name="colorAccent">#043f8b</color>
+    <color name="ic_launcher_background">#DCD51E</color>
+
+    <color name ="dominant_color">#041d3b</color>
+    <color name ="dominant_color1">#043f8b</color>
+    <color name ="dominant_color2">#042b5c</color>
+    <color name ="dominant_color3">#0449a3</color>
+    <color name ="dominant_color4">#043778</color>
+    <color name ="dominant_color5">#0f4d90</color>
+    <color name ="dominant_color6">#113c6a</color>
+    <color name ="dominant_color7">#041c4c</color>
+    <color name ="dominant_color8">#1c3b65</color>
+    <color name ="dominant_color9">#043c9c</color>
+
+    <color name="color_divider">#D6D3D3</color>
+
 </resources>
